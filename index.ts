@@ -1,4 +1,4 @@
-import { Server } from "./server";
+import { Server } from "./src/server";
 const config = require("./configs");
 
 const server = new Server();

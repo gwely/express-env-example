@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const routes = require("./routes");
+import { Router } from "./router";
 
 export class Server {
   private readonly server: any;
@@ -11,7 +11,7 @@ export class Server {
 
   public init(): Server {
     this.server.use(bodyParser.json());
-    routes.init(this.server);
+    new Router(this.server).init();
     return this;
   }
 
