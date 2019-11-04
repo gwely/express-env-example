@@ -2,12 +2,10 @@
 
 const
     express = require('express'),
-    v1ApiController = require('./v1'),
-    v2ApiController = require('./v2');
+    v1Routes = require('./v1');
 
 let router = express.Router();
 
-router.use('/v1', v1ApiController);
-router.use('/v2', v2ApiController);
+router.use('/v1', v1Routes);
 
 module.exports = router;

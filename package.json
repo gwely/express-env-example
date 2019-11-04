@@ -4,7 +4,8 @@
   "description": "App example of express environment",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "build": "tsc",
+    "start": "ts-node index.js"
   },
   "engines": {
     "node": "^4.2.0"
@@ -15,5 +16,10 @@
     "express": "^4.14.1",
     "express-handlebars": "^3.0.0",
     "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   }
 }

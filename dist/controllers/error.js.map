@@ -1,0 +1,1 @@
+{"version":3,"file":"error.js","sourceRoot":"","sources":["../../server/controllers/error.js"],"names":[],"mappings":"AAAA,YAAY,CAAC;AAEb,SAAS,KAAK,CAAE,GAAG,EAAE,GAAG;IACpB,GAAG,CAAC,MAAM,CAAC,aAAa,EAAE;QACtB,KAAK,EAAE,OAAO;KACjB,CAAC,CAAC;AACP,CAAC;AAED,MAAM,CAAC,OAAO,GAAG;IACb,KAAK,EAAE,KAAK;CACf,CAAC"}
