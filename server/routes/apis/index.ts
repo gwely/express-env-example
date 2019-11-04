@@ -1,8 +1,8 @@
 import { Router } from "express";
-const dogRoutes = require("./dogs/routes");
+const v1Routes = require("./v1");
 
 let router = Router();
 
-router.use('/dogs', dogRoutes);
+router.use('/v1', v1Routes);
 
 module.exports = router;

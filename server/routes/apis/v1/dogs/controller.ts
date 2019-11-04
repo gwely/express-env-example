@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { DogService } from "../../../services/dogs";
+import { DogService } from "./service";
 
 export class DogController {
   constructor(private readonly service: DogService) {}
