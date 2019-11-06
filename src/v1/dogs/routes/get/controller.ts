@@ -3,7 +3,14 @@ const log = require("loglevel");
 
 import { IManager } from "./manager";
 
-export class Controller {
+export interface IController {
+  getDogs(
+    req: Request,
+    res: Response,
+  ): Promise<void>;
+}
+
+export class Controller implements IController {
   constructor(private readonly manager: IManager) {}
 
   public async getDogs(

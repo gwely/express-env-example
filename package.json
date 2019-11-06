@@ -13,6 +13,7 @@
   "author": "Kelvin Nguyen",
   "dependencies": {
     "body-parser": "^1.16.0",
+    "bottlejs": "^1.7.2",
     "express": "^4.14.1",
     "express-handlebars": "^3.0.0",
     "lodash": "^4.17.4",
