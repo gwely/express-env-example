@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { Repository } from "./repository";
-import { Manager } from "./manager";
-import { Controller } from "./controller";
+import { Container } from "./container";
 
 const router = Router();
 
 router.get("/v1/dogs/:id", (req, res) => {
-  new Controller(new Manager(new Repository())).getDogById(req, res);
+  const container = new Container().bind();
+  const controller = container.getController();
+  controller.getDogById(req, res);
 });
 
 module.exports = router;

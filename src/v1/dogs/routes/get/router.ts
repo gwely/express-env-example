@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { IController } from "./controller";
-const container = require("./container");
+import { Container } from "./container";
 
 const router = Router();
 
 router.get("/v1/dogs", (req, res) => {
-  const controller = (container["CONTROLLER"] as IController);
+  const container = new Container().bind();
+  const controller = container.getController();
   controller.getDogs(req, res);
 });
 
