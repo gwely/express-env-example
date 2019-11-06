@@ -3,6 +3,7 @@ import Bottle = require("bottlejs");
 import { IController, Controller } from "./controller";
 import { Manager } from "./manager";
 import { Repository } from "./repository";
+import { DogDao } from "../../db";
 import { IDENTIFIERS } from "./identifiers";
 
 export interface IContainer {
@@ -27,7 +28,12 @@ export class Container implements IContainer {
       Manager,
       IDENTIFIERS.REPOSITORY,
     );
-    this.bottle.service(IDENTIFIERS.REPOSITORY, Repository);
+    this.bottle.service(
+      IDENTIFIERS.REPOSITORY,
+      Repository,
+      IDENTIFIERS.DAO,
+    );
+    this.bottle.constant(IDENTIFIERS.DAO, DogDao);
     return this;
   }
 

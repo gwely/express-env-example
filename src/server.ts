@@ -28,7 +28,13 @@ export class Server {
   }
 
   public connectToDb(): Server {
-    mongoose.connect(this.server.get("db_url"), { useNewUrlParser: true });
+    mongoose.connect(
+      this.server.get("db_url"),
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      },
+    );
     const db = mongoose.connection;
     db.on("error", log.error.bind(log, "MongoDB connection error:"));
     return this;
