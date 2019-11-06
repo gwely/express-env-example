@@ -22,19 +22,18 @@ export class ApiRouter {
         return next();
     });
 
-    const router = glob.sync('**/routes.ts', { cwd: `${__dirname}/` })
+    const router = glob.sync('**/router.ts', { cwd: `${__dirname}/` })
       .reduce((
         rootRouter: Router,
         filename: string,
       ) => {
         const router = require(`./${filename}`);
         if (Object.getPrototypeOf(router) !== Router) {
-          console.log("not router");
           return rootRouter;
         }
         return rootRouter.use(router);
       }, Router({ mergeParams: true }));
 
-    this.server.use("/", router);
+    this.server.use("/api", router);
   }
 }

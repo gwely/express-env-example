@@ -1,5 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const log = require("loglevel");
+log.setLevel("debug");
+
 import { ApiRouter } from "./router";
 
 export class Server {
