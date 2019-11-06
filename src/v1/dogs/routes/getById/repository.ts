@@ -1,17 +1,18 @@
-const log = require("loglevel");
+import log = require("loglevel");
 import { Dog } from "../../dog";
-import { DogDbDto, DogDbType } from "../../db";
-
-const db: DogDbType[] = require("../../db/dogs.db.json");
+import { DogDbDto } from "../../db";
+import { DogDao } from "../../db";
 
 export interface IRepository {
   getDogById(id: string): Promise<Dog|undefined>;
 }
 
 export class Repository implements IRepository {
-  public getDogById(id: string): Promise<Dog|undefined> {
+  public async getDogById(id: string): Promise<Dog|undefined> {
     log.info(`Fetching dog with id: ${id}`);
-    const dogJson = db.find(dog => dog.id === id);
+    const dogJson = await DogDao.findOne({
+      id,
+    }).exec();
     if (!dogJson) {
       return;
     }

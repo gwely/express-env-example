@@ -5,7 +5,7 @@ import {
   Express,
   Router,
 } from "express";
-const glob = require("glob");
+import glob = require("glob");
 
 export class ApiRouter {
   constructor(

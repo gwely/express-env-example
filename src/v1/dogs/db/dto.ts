@@ -1,4 +1,4 @@
-import { DogDbType } from "./type";
+import { DogDbType } from "./dao";
 import { Dog } from "../dog";
 
 export class DogDbDto {

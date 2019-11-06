@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-const log = require("loglevel");
+import log = require("loglevel");
 
 import { IManager } from "./manager";
 

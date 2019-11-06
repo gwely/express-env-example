@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-const log = require("loglevel");
+import log = require("loglevel");
 
 import { BadRequestError, NotFoundError } from "../../../../errors";
 import { IManager } from "./manager";
@@ -21,7 +21,7 @@ export class Controller implements IController {
     res: Response,
   ): Promise<void> {
     try {
-      const id = req.param("id");
+      const id = req.params.id;
       if (!id) {
         throw new BadRequestError("Need to specify id");
       }
