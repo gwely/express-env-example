@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 import { Repository } from "./repository";
 import { Manager } from "./manager";
 import { Controller } from "./controller";

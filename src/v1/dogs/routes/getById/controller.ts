@@ -25,7 +25,6 @@ export class Controller implements IController {
       if (!id) {
         throw new BadRequestError("Need to specify id");
       }
-
       const dog = await this.manager.getDogById(id);
       res.json(dog);
     } catch (err) {
