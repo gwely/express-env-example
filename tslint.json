@@ -31,7 +31,6 @@
     "label-position": true,
     "new-parens": true,
     "no-angle-bracket-type-assertion": true,
-    "no-any": true,
     "no-arg": true,
     "no-conditional-assignment": true,
     "no-construct": true,
@@ -58,7 +57,7 @@
         "multiline": {
           "objects": "always",
           "arrays": "always",
-          "functions": "never",
+          "functions": "always",
           "typeLiterals": "ignore"
         },
         "esSpecCompliant": true

@@ -20,7 +20,7 @@ export class DogController {
     if (!id) {
       res.status(400).send({ message: "Need to specify id" });
     }
-    const parsedId = parseInt(id);
+    const parsedId = Number(id);
     const dog = this.service.getDogById(parsedId);
     if (!dog) {
       res.status(404).send({ message: "Dog not found" });

@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-import { Router } from "./router";
+import { ApiRouter } from "./router";
 
 export class Server {
   private readonly server: any;
@@ -11,7 +11,7 @@ export class Server {
 
   public init(): Server {
     this.server.use(bodyParser.json());
-    new Router(this.server).init();
+    new ApiRouter(this.server).init();
     return this;
   }
 
@@ -23,10 +23,10 @@ export class Server {
   }
 
   public start(): void {
-    let hostname = this.server.get('hostname'),
-        port = this.server.get('port');
+    const hostname = this.server.get('hostname');
+    const port = this.server.get('port');
 
-    this.server.listen(port, function () {
+    this.server.listen(port, () => {
         console.log('Express server listening on - http://' + hostname + ':' + port);
     });
   }
