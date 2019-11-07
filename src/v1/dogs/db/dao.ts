@@ -1,10 +1,5 @@
-import { Document, model, Model, Schema } from "mongoose";
-
-export type DogDbType = Document & {
-  id: string;
-  name: string;
-  age: number;
-};
+import { model, Model, Schema } from "mongoose";
+import { DogDbType } from "./type";
 
 const dogSchema = new Schema({
   id: String,
