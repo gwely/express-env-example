@@ -1,5 +1,11 @@
+import log = require("loglevel");
 import { Server } from "./src/server";
-const config = require("./configs");
+import { config } from "./src/config";
 
-const server = new Server();
-server.init().configure(config).connectToDb().start();
+try {
+  log.setLevel(config.LOG_LEVEL as any);
+  const server = new Server();
+  server.init().connectToDb().start();
+} catch (err) {
+  log.error(err.stack);
+}

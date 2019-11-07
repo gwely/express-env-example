@@ -2,8 +2,8 @@ import express = require("express");
 import bodyParser = require("body-parser");
 import mongoose = require("mongoose");
 import log = require("loglevel");
-log.setLevel("debug");
 
+import { config } from "./config";
 import { ApiRouter } from "./router";
 
 export class Server {
@@ -19,17 +19,9 @@ export class Server {
     return this;
   }
 
-  public configure(config: any): Server {
-    this.server.set("env", config.env);
-    this.server.set("port", config.port);
-    this.server.set("hostname", config.hostname);
-    this.server.set("db_url", config.db_url);
-    return this;
-  }
-
   public connectToDb(): Server {
     mongoose.connect(
-      this.server.get("db_url"),
+      config.MONGO_URL,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -41,11 +33,10 @@ export class Server {
   }
 
   public start(): void {
-    const hostname = this.server.get("hostname");
-    const port = this.server.get("port");
+    const { HOSTNAME, PORT } = config;
 
-    this.server.listen(port, () => {
-        console.log(`Express server listening on http://${hostname}:${port}`);
+    this.server.listen(PORT, () => {
+        log.info(`Express server listening on http://${HOSTNAME}:${PORT}`);
     });
   }
 }
